@@ -352,6 +352,8 @@ const DRAG_OPTIONS = {
 	animation: 150,
 	ghostClass: 'ghost',
 	dragClass: 'task-dragging',
+	// Sortable's default edge zone is 30px, too narrow to reliably catch a drag at the board edge.
+	scrollSensitivity: 80,
 	delayOnTouchOnly: true,
 	delay: 1000,
 } as const

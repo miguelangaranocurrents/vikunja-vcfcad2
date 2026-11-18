@@ -610,7 +610,9 @@ function onEnter(event: KeyboardEvent) {
 }
 
 async function doCmd() {
-	if (results.value.length === 1 && results.value[0].items.length === 1) {
+	// With a command selected, the input is the command's argument (e.g. the new task title),
+	// so an existing search hit must not hijack it.
+	if (selectedCmd.value === null && results.value.length === 1 && results.value[0].items.length === 1) {
 		const result = results.value[0]
 		doAction(result.type, result.items[0])
 		openTaskAfterCreate = false
